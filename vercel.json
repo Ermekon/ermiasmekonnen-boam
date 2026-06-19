@@ -1,7 +1,7 @@
 {
   "buildCommand": "nuxt build",
   "outputDirectory": ".output/public",
-  "framework": "nuxt",
+  "framework": "nuxtjs",
   "regions": [
     "iad1"
   ],

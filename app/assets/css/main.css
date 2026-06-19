@@ -1,0 +1,39 @@
+/* FIXED: duplicate @font-face block removed */
+@font-face { font-family: "Sfizia"; src: url("/fonts/atipo-sfizia-regular.ttf") format("truetype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Sfizia"; src: url("/fonts/atipo-sfizia-bold.ttf") format("truetype"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Sfizia"; src: url("/fonts/atipo-sfizia-regular-italic.ttf") format("truetype"); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: "Lay Grotesk"; src: url("/fonts/laygrotesk-trial-regular.otf") format("opentype"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Lay Grotesk"; src: url("/fonts/laygrotesk-trial-medium.otf") format("opentype"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Lay Grotesk"; src: url("/fonts/laygrotesk-trial-bold.otf") format("opentype"); font-weight: 700; font-style: normal; font-display: swap; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 10px; scroll-behavior: auto; }
+/* FIXED: triple-redundant font-family cleaned to single stack */
+body { font-family: "Lay Grotesk", "DM Sans", sans-serif; font-size: 1.6rem; line-height: 1.6; background: #080808; color: #ffffff; overflow-x: hidden; }
+/* FIXED: triple-redundant font-family cleaned to single stack */
+h1, h2, h3, h4, h5 { font-family: "Sfizia", "Playfair Display", serif; font-weight: 400; line-height: 1.1; }
+a { color: inherit; text-decoration: none; }
+img, video { display: block; max-width: 100%; }
+.container { width: 100%; padding: 0 4.8rem; margin: 0 auto; }
+@media (max-width: 768px) { .container { padding: 0 1.6rem; } }
+.h1 { font-size: 12.5vw; } .h2 { font-size: 9.17vw; } .h3 { font-size: 5vw; } .h4 { font-size: 3.33vw; }
+.txt-sm { font-size: max(1.04vw, 1.4rem); } .txt-md { font-size: max(1.25vw, 1.6rem); } .txt-lg { font-size: max(1.46vw, 2rem); }
+html.lenis { height: auto; } .lenis.lenis-smooth { scroll-behavior: auto; }
+.AppearImage { opacity: 0; transition: opacity 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+.AppearImage.is-appear { opacity: 1; }
+.AppearImage__inner { transform: scale(1.05); transition: transform 0.8s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+.AppearImage.is-appear .AppearImage__inner { transform: scale(1); }
+.btn-primary { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1.2rem 2.4rem; border: 1px solid rgba(255,255,255,0.3); border-radius: 16px; font-size: 1.4rem; cursor: pointer; position: relative; overflow: hidden; transition: border-color 0.3s; }
+.btn-primary:hover { border-color: rgba(255,255,255,0.8); }
+.link-primary { position: relative; }
+.link-primary::before { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); }
+.link-primary:hover::before { transform: scaleX(1); }
+.ease-out-quart { transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); }
+/* FIXED: global focus-visible style -- keyboard users get visible beige outline */
+:focus-visible { outline: 2px solid #E1C8B4; outline-offset: 4px; border-radius: 4px; }
+/* FIXED: prefers-reduced-motion -- disables all animations for vestibular safety */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+/* FIXED: skip-link styles for keyboard navigation */
+.skip-link { position: absolute; top: -100%; left: 1.6rem; z-index: 9999; background: #E1C8B4; color: #080808; padding: 1.2rem 2.4rem; font-family: "Lay Grotesk", "DM Sans", sans-serif; font-size: 1.4rem; font-weight: 700; border-radius: 0 0 8px 8px; text-decoration: none; }
+.skip-link:focus { top: 0; }

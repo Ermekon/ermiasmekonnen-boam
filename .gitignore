@@ -1,0 +1,18 @@
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Nuxt build output
+.nuxt/
+.output/
+dist/
+
+# Dependencies
+node_modules/
+
+# Logs
+*.log
+
+# OS
+.DS_Store

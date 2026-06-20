@@ -57,7 +57,7 @@ const submitting=ref(false);const submitError=ref(false)
 async function handleSubmit(){
   const emailRegex=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;if(!emailRegex.test(form.email)){submitError.value="Please enter a valid email address.";return;}if(form.phone&&!/^[\d\s+\-()]{7,20}$/.test(form.phone)){submitError.value="Please enter a valid phone number.";return;}submitting.value=true;submitError.value=false
   try{
-    await fetch(""https://formspree.io/f/" + useRuntimeConfig().public.formspreeId",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({...form,projectType:typeParam.value,source:"full-brief",_gotcha:""})})
+    await fetch("https://formspree.io/f/" + useRuntimeConfig().public.formspreeId",{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},body:JSON.stringify({...form,projectType:typeParam.value,source:"full-brief",_gotcha:""})})
     sessionStorage.setItem("brief-submitted","1")
     router.push("/thank-you")
   }catch(e){submitError.value=true;submitting.value=false}
